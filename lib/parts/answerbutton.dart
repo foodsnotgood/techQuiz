@@ -65,7 +65,7 @@ class _MyAnswerbuttonState extends State<Answerbutton>
             child: DecoratedBox(
               decoration: BoxDecoration(
                   color: fillColorAnim.value!,
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(3),
                   boxShadow: const [
                     BoxShadow(color: Colors.black, blurRadius: 1.0)
                   ],

@@ -43,7 +43,12 @@ class _WelcomeState extends State<Welcome> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
+            child: OutlinedButton(
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all(
+                        const ContinuousRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(3))))),
                 onPressed: () {
                   questionDataProvider =
                       FutureProvider<List<QuestionDto>>((ref) {
@@ -61,7 +66,12 @@ class _WelcomeState extends State<Welcome> {
           for (var i = 0; i < topics.length; i++)
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
+              child: FilledButton.tonal(
+                  style: ButtonStyle(
+                      shape: MaterialStateProperty.all(
+                          const ContinuousRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(3))))),
                   onPressed: () {
                     questionDataProvider =
                         FutureProvider<List<QuestionDto>>((ref) {

@@ -9,7 +9,7 @@ class ApiService {
 
   Future<List<QuestionDto>> fetchQuestions(String category) async {
     var response =
-        await http.get(Uri.parse("$endpoint&category=$category&limit=30"));
+        await http.get(Uri.parse("$endpoint&category=$category&limit=5"));
     if (response.statusCode == 200) {
       return (json.decode(response.body) as List)
           .map((q) => QuestionDto.fromJson(q))

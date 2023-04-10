@@ -17,7 +17,6 @@ const double margin = 10;
 List<String> topics = [
   "Linux",
   "Devops",
-  "Kubernetes",
   "Docker",
   "Code",
   "SQL",

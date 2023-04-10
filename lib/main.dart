@@ -32,7 +32,7 @@ class QuizApp extends StatelessWidget {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            title: Text("Speed Quizz"),
+            title: const Text("Tech Quiz"),
           ),
           bottomNavigationBar: TabBar(
             indicatorColor: Theme.of(context).colorScheme.primary,
