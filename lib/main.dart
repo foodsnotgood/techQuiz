@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:speedquizz/info.dart';
 import 'package:speedquizz/techQuiz.dart';
 import 'package:speedquizz/welcome.dart';
 
-void main() {
+Future<void> main() async {
+  await dotenv.load();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -14,6 +16,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    print(dotenv.env);
     return MaterialApp(
       title: 'Speedquizz',
       theme: ThemeData(
