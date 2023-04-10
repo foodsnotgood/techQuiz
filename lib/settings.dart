@@ -8,57 +8,21 @@ import 'dto/questionDto.dart';
 StreamController<bool> restart = StreamController<bool>();
 
 final apiProvider = Provider<ApiService>((ref) => ApiService());
-final questionDataProvider = FutureProvider<List<QuestionDto>>((ref) {
-  return ref.read(apiProvider).fetchQuestions();
+var questionDataProvider = FutureProvider<List<QuestionDto>>((ref) {
+  return ref.read(apiProvider).fetchQuestions("");
 });
 
 const double margin = 10;
 
-List<dynamic> questions = [
-  {
-    "question": "Uit welke film of reeks komt deze foto?",
-    "image": "assets/images/image1.jpeg",
-    "answers": [
-      "The Book of Boba Fett",
-      "The Last Jedi",
-      "A New Hope",
-      "The Mandalorian"
-    ],
-    "correct": 3
-  },
-  {
-    "question": "Uit welke film of reeks komt deze foto?",
-    "image": "assets/images/image2.jpeg",
-    "answers": [
-      "The Empire Strikes Back",
-      "The Last Jedi",
-      "A New Hope",
-      "Return of the Jedi"
-    ],
-    "correct": 0
-  },
-  {
-    "question": "Uit welke film of reeks komt deze foto?",
-    "image": "assets/images/image3.webp",
-    "answers": [
-      "Revenge of the Sith",
-      "Rogue One",
-      "Attack of the Clones",
-      "The Phantom Menace"
-    ],
-    "correct": 0
-  },
-  {
-    "question": "Uit welke film of reeks komt deze foto?",
-    "image": "assets/images/image4.jpeg",
-    "answers": [
-      "Han Solo",
-      "The Clone Wars",
-      "The Book of Boba Fett",
-      "Rogue One"
-    ],
-    "correct": 0
-  }
+List<String> topics = [
+  "Linux",
+  "Devops",
+  "Kubernetes",
+  "Docker",
+  "Code",
+  "SQL",
+  "CMS",
+  "bash"
 ];
 
 List<dynamic> json = [

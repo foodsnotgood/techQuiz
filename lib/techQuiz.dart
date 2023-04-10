@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:speedquizz/dto/questionDto.dart';
+import 'package:speedquizz/parts/answerbutton.dart';
 import 'package:speedquizz/parts/result.dart';
 import 'package:speedquizz/settings.dart';
 
@@ -78,6 +79,9 @@ class TechQuestion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    Iterable<String> answers =
+        question.answers.values.where((element) => element != null);
+    Iterable<bool> correctAnswers = question.correctAnswers.values;
     return ListView(
       children: [
         Container(
@@ -101,15 +105,10 @@ class TechQuestion extends StatelessWidget {
             style: theme.textTheme.headlineMedium,
           ),
         ),
-        Container(
-          child: ElevatedButton(
-            onPressed: () {
-              processAnswer(true);
-              print('pressed');
-            },
-            child: Text('process answer'),
-          ),
-        )
+        for (var i = 0; i < answers.length; i++)
+          if (answers.elementAt(i).trim() != "")
+            Answerbutton(answers.elementAt(i), correctAnswers.elementAt(i),
+                processAnswer)
       ],
     );
   }

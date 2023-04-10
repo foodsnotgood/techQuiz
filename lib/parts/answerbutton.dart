@@ -65,16 +65,20 @@ class _MyAnswerbuttonState extends State<Answerbutton>
             child: DecoratedBox(
               decoration: BoxDecoration(
                   color: fillColorAnim.value!,
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(5),
                   boxShadow: const [
                     BoxShadow(color: Colors.black, blurRadius: 1.0)
                   ],
                   border: Border.all(color: borderColorAnim.value!, width: 2)),
               child: Center(
-                child: Text(
-                  widget.answer,
-                  style: theme.textTheme.bodyLarge!
-                      .copyWith(color: theme.colorScheme.onSecondary),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    widget.answer,
+                    style: theme.textTheme.bodyLarge!
+                        .copyWith(color: theme.colorScheme.onSecondary),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
             ),
