@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:speedquizz/info.dart';
-import 'package:speedquizz/quiz.dart';
+import 'package:speedquizz/techQuiz.dart';
 import 'package:speedquizz/welcome.dart';
 
 void main() {
@@ -37,7 +37,7 @@ class QuizApp extends StatelessWidget {
           bottomNavigationBar: TabBar(
             indicatorColor: Theme.of(context).colorScheme.primary,
             labelColor: Theme.of(context).colorScheme.primary,
-            tabs: [
+            tabs: const [
               Tab(
                 icon: Icon(Icons.home),
                 text: "Welcome",
@@ -55,7 +55,7 @@ class QuizApp extends StatelessWidget {
           body: TabBarView(
             children: [
               Welcome(),
-              Quiz(),
+              ApiQuiz(),
               Info(),
             ],
           ),

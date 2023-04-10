@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../settings.dart' as Settings;
+import '../settings.dart';
 
 class Result extends StatelessWidget {
   final int score;
+  final int totalAmountQuestion;
 
-  Result(this.score);
+  Result(this.score, this.totalAmountQuestion);
 
   @override
   Widget build(BuildContext context) {
@@ -27,18 +30,21 @@ class Result extends StatelessWidget {
         )),
         Center(
             child: Text(
-          "van de ${Settings.questions.length} vragen goed!",
+          "van de $totalAmountQuestion vragen goed!",
           style: theme.textTheme.bodyLarge,
         )),
         Container(
             margin: EdgeInsets.only(left: 40, right: 40, bottom: 20),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
-              child: ElevatedButton(
-                child: Text("Opnieuw", style: theme.textTheme.bodyMedium),
-                onPressed: () {
-                  Settings.restart.add(true);
-                },
+              child: Consumer(
+                builder: (context, ref, _) => ElevatedButton(
+                  child: Text("Opnieuw", style: theme.textTheme.bodyMedium),
+                  onPressed: () {
+                    ref.refresh(questionDataProvider);
+                    Settings.restart.add(true);
+                  },
+                ),
               ),
             ))
       ],

@@ -42,7 +42,7 @@ class _MyQuizState extends State<Quiz> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     if (questionNumber == totalQuestions) {
-      return Result(score);
+      return Result(score, 5);
     } else {
       return Question(questionNumber, score, processAnswer);
     }
