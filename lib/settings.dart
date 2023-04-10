@@ -1,6 +1,16 @@
 import 'dart:async';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:speedquizz/service/apiService.dart';
+
+import 'dto/questionDto.dart';
+
 StreamController<bool> restart = StreamController<bool>();
+
+final apiProvider = Provider<ApiService>((ref) => ApiService());
+final questionDataProvider = FutureProvider<List<QuestionDto>>((ref) {
+  return ref.read(apiProvider).fetchQuestions();
+});
 
 const double margin = 10;
 
