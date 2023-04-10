@@ -54,9 +54,6 @@ class TechQuiz extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final questionData = ref.watch(questionDataProvider);
-    String url = const String.fromEnvironment('API_BASE_URL',
-        defaultValue: 'Niet gelukt');
-    print(url);
     return questionData.when(
         data: (data) {
           if (questionNumber == data.length) {
