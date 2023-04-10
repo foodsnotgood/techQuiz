@@ -56,7 +56,6 @@ class TechQuiz extends ConsumerWidget {
     final questionData = ref.watch(questionDataProvider);
     return questionData.when(
         data: (data) {
-          print(questionNumber);
           if (questionNumber == data.length) {
             return Result(score, data.length);
           } else {
